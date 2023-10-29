@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/> 
+    <link rel="icon" href="img/car-logo.png">
+
+    <script>
+        window.smoothScroll = function(target) {
+            var scrollContainer = target;
+            do { 
+                scrollContainer = scrollContainer.parentNode;
+                if (!scrollContainer) return;
+                scrollContainer.scrollTop += 1;
+            } while (scrollContainer.scrollTop == 0);
+
+            var targetY = 0;
+            do { 
+                if (target == scrollContainer) break;
+                targetY += target.offsetTop;
+            } while (target = target.offsetParent);
+
+            scroll = function(c, a, b, i) {
+                i++; if (i > 30) return;
+                c.scrollTop = a + (b - a) / 30 * i;
+                setTimeout(function(){ scroll(c, a, b, i); }, 20);
+            }
+            
+            scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+        }
+
+        function reset () {
+            var name_txt = document.getElementById('name');
+            name_txt.value = '';
+            var email_txt = document.getElementById('email');
+            email_txt.value = '';
+            var password_txt = document.getElementById('password');
+            password_txt.value = '';
+        }
+    </script>
+
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="logo">
+            <span><input class="logo-txt" type="button" value="Rent a Car" onclick="smoothScroll(document.getElementById('home'));"></span>
+        </div>
+        <div class="nav-bar-nav">
+            <button class="nav-items" onclick="smoothScroll(document.getElementById('home'));">Home</button>
+            <button class="nav-items" onclick="smoothScroll(document.getElementById('cars'));">Explore Cars</button>
+            <button class="nav-items" onclick="smoothScroll(document.getElementById('about-us'));">About us</button>
+            <button class="nav-items" onclick="smoothScroll(document.getElementById('about-us'));">Sign up</button>
+        </div>
+    </nav>
+
+    <section class="home-bg" id="home">
+        <div class="tagline-box">
+            <div class="tagline-txt">
+                Driving Dreams, 
+                <br/>One Ride at a Time: 
+                <br/>Your Ultimate Destination for Renting Cars!
+                <br>
+                <input type="button" value="Explore Cars" class="explore-btn" onclick="smoothScroll(document.getElementById('cars'));">
+            </div>
+        </div>
+    </section>
+
+    <section class="cars" id="cars">
+        <div class="slogan">
+            Your Journey, Your Choice: Where Every Mile Feels Like Your Own!
+        </div>
+        <div class="cars-container">
+            <div class="row-1">  
+                <div class="car-1">
+                    <div class="car-img">
+                        <img src="./img/virtus-img.png" alt="VW Virtus">
+                    </div>
+                    <div class="car-info">
+                        Volkswagen Virtus<br/>₹699
+                    </div>
+                    <input type="button" value="Rent Now" class="rent-btn">
+                </div>
+                <div class="car-2">
+                    <div class="car-img">
+                        <img src="./img/city-img.png" alt="Honda City">
+                    </div>
+                    <div class="car-info">
+                        Honda City<br/>₹699
+                    </div>
+                    <input type="button" value="Rent Now" class="rent-btn">
+                </div>
+                <div class="car-3">
+                    <div class="car-img">
+                        <img src="./img/kodiaq-img.png" alt="Skoda Kodiaq">
+                    </div>
+                    <div class="car-info">
+                        Skoda Kodiaq<br/>₹699
+                    </div>
+                    <input type="button" value="Rent Now" class="rent-btn">
+                </div>
+            </div>
+            <div class="row-1">
+                <div class="car-4">
+                    <div class="car-img">
+                        <img src="./img/compass-img.png" alt="Jeep Compass">
+                    </div>
+                    <div class="car-info">
+                        Jeep Compass<br/>₹699
+                    </div>
+                    <input type="button" value="Rent Now" class="rent-btn">
+                </div>
+                <div class="car-5">
+                    <div class="car-img">
+                        <img src="./img/hilux-img.png" alt="Toyota Hilux">
+                    </div>
+                    <div class="car-info">
+                        Toyota Hilux<br/>₹699
+                    </div>
+                    <input type="button" value="Rent Now" class="rent-btn">
+                </div>
+                <div class="car-6">
+                    <div class="car-img">
+                        <img src="./img/magnite-img.png" alt="Nissan Magnite">
+                    </div>
+                    <div class="car-info">
+                        Nissan Magnite<br/>₹699
+                    </div>
+                    <input type="button" value="Rent Now" class="rent-btn">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-us-sign-up" id="about-us">
+        <div class="about-us">
+            <div class="about-us-txt">About us</div>
+            <div class="about-us-img"></div>
+            <div class="about-us-pg">Quality cars with cheap prices
+                <p style="font-size: 21px; text-align: justify; padding: 10px;">we are more than just a car rental company; 
+                    we are your partners in mobility. 
+                    Our journey began with a vision to redefine 
+                    the way people experience the freedom of the open road.</p>
+            </div>
+        </div>
+        <div class="sign-up">
+            <div class="sign-up-txt">Sign up</div>
+            <div class="sign-up-form">
+                <label for="name" class="sign-up-input-txt">Your Name</label>
+                <input type="text" placeholder="Enter your name here" id="name" class="sign-up-input-txt sign-up-input">
+                <label for="email" class="sign-up-input-txt">Your Email</label>
+                <input type="text" placeholder="Enter your email here" id="email" class="sign-up-input-txt sign-up-input">
+                <label for="password" class="sign-up-input-txt">Your Password</label>
+                <input type="password" placeholder="Enter your password here" id="password" class="sign-up-input-txt sign-up-input">
+                <input type="reset" value="Sign up" class="sign-up-btn" onclick="reset()">
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-social-logo">
+            <div class="footer-logo">
+                <span><input class="logo-txt footer-logo-txt" type="button" value="Rent a Car" onclick="smoothScroll(document.getElementById('home'));"></span>
+            </div>
+            <div class="footer-social">
+                <p style="font-size: 20px; font-style: normal; font-weight: 400; padding: 10px 0px 5px 0px">Social media</p> 
+                <div class="social-media-icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 50 50" fill="none">
+                        <path d="M45.8333 25.0001C45.8333 13.5001 36.5 4.16675 25 4.16675C13.5 4.16675 4.16663 13.5001 4.16663 25.0001C4.16663 35.0834 11.3333 43.4792 20.8333 45.4167V31.2501H16.6666V25.0001H20.8333V19.7917C20.8333 15.7709 24.1041 12.5001 28.125 12.5001H33.3333V18.7501H29.1666C28.0208 18.7501 27.0833 19.6876 27.0833 20.8334V25.0001H33.3333V31.2501H27.0833V45.7292C37.6041 44.6876 45.8333 35.8126 45.8333 25.0001Z" fill="black"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 50 50" fill="none">
+                        <path d="M27.1416 4.16882C28.6619 4.16299 30.1822 4.17827 31.702 4.21466L32.1062 4.22924C32.5729 4.24591 33.0333 4.26674 33.5895 4.29174C35.8062 4.39591 37.3187 4.74591 38.6458 5.26049C40.0208 5.78966 41.1791 6.50632 42.3374 7.66466C43.3966 8.7055 44.2162 9.96454 44.7395 11.3542C45.2541 12.6813 45.6041 14.1959 45.7083 16.4126C45.7333 16.9667 45.7541 17.4292 45.7708 17.8959L45.7833 18.3001C45.8203 19.8192 45.8363 21.3388 45.8312 22.8584L45.8333 24.4126V27.1417C45.8384 28.662 45.8224 30.1823 45.7854 31.7022L45.7729 32.1063C45.7562 32.573 45.7354 33.0334 45.7104 33.5897C45.6062 35.8063 45.252 37.3188 44.7395 38.6459C44.218 40.0371 43.3981 41.2971 42.3374 42.3376C41.2957 43.3966 40.036 44.2162 38.6458 44.7397C37.3187 45.2542 35.8062 45.6042 33.5895 45.7084C33.0333 45.7334 32.5729 45.7542 32.1062 45.7709L31.702 45.7834C30.1822 45.8204 28.6619 45.8364 27.1416 45.8313L25.5874 45.8334H22.8604C21.3401 45.8385 19.8198 45.8226 18.2999 45.7855L17.8958 45.773C17.4012 45.7551 16.9068 45.7342 16.4124 45.7105C14.1958 45.6063 12.6833 45.2522 11.3541 44.7397C9.96386 44.2175 8.7046 43.3976 7.66452 42.3376C6.6042 41.2965 5.78374 40.0367 5.26036 38.6459C4.74577 37.3188 4.39577 35.8063 4.29161 33.5897C4.2684 33.0953 4.24757 32.6009 4.22911 32.1063L4.21869 31.7022C4.18028 30.1823 4.16292 28.662 4.16661 27.1417V22.8584C4.16079 21.3388 4.17607 19.8192 4.21244 18.3001L4.22702 17.8959C4.24369 17.4292 4.26452 16.9667 4.28952 16.4126C4.39369 14.1938 4.74369 12.6834 5.25827 11.3542C5.78197 9.96386 6.60403 8.70517 7.66661 7.66674C8.70597 6.60581 9.96444 5.7846 11.3541 5.26049C12.6833 4.74591 14.1937 4.39591 16.4124 4.29174L17.8958 4.22924L18.2999 4.21882C19.8191 4.18043 21.3387 4.16307 22.8583 4.16674L27.1416 4.16882ZM24.9999 14.5855C23.6197 14.566 22.2494 14.821 20.9686 15.3356C19.6878 15.8503 18.5221 16.6144 17.5392 17.5835C16.5563 18.5526 15.7758 19.7074 15.243 20.9808C14.7103 22.2542 14.436 23.6208 14.436 25.0011C14.436 26.3814 14.7103 27.748 15.243 29.0214C15.7758 30.2948 16.5563 31.4496 17.5392 32.4187C18.5221 33.3878 19.6878 34.1519 20.9686 34.6666C22.2494 35.1813 23.6197 35.4363 24.9999 35.4167C27.7626 35.4167 30.4121 34.3193 32.3656 32.3658C34.3191 30.4123 35.4166 27.7627 35.4166 25.0001C35.4166 22.2374 34.3191 19.5879 32.3656 17.6344C30.4121 15.6809 27.7626 14.5855 24.9999 14.5855ZM24.9999 18.7522C25.8302 18.7369 26.6551 18.8872 27.4266 19.1943C28.1981 19.5014 28.9006 19.9591 29.4932 20.5408C30.0858 21.1225 30.5566 21.8164 30.8779 22.582C31.1993 23.3477 31.3649 24.1697 31.3651 25.0001C31.3652 25.8304 31.1999 26.6525 30.8788 27.4182C30.5576 28.184 30.0871 28.8781 29.4947 29.4599C28.9023 30.0418 28.1999 30.4998 27.4285 30.8072C26.6571 31.1145 25.8323 31.2651 25.002 31.2501C23.3444 31.2501 21.7547 30.5916 20.5826 29.4195C19.4105 28.2474 18.752 26.6577 18.752 25.0001C18.752 23.3425 19.4105 21.7528 20.5826 20.5807C21.7547 19.4086 23.3444 18.7501 25.002 18.7501L24.9999 18.7522ZM35.9374 11.4605C35.2653 11.4874 34.6297 11.7733 34.1637 12.2583C33.6977 12.7434 33.4374 13.3899 33.4374 14.0626C33.4374 14.7352 33.6977 15.3818 34.1637 15.8668C34.6297 16.3518 35.2653 16.6378 35.9374 16.6647C36.6281 16.6647 37.2905 16.3903 37.7789 15.9019C38.2672 15.4135 38.5416 14.7512 38.5416 14.0605C38.5416 13.3698 38.2672 12.7074 37.7789 12.2191C37.2905 11.7307 36.6281 11.4563 35.9374 11.4563V11.4605Z" fill="black"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 40 40" fill="none">
+                        <path d="M31.5017 1.92163H37.635L24.235 17.2383L40 38.0766H27.6567L17.99 25.4366L6.92667 38.0766H0.79L15.1233 21.6933L0 1.9233H12.6567L21.395 13.4766L31.5017 1.92163ZM29.35 34.4066H32.7483L10.81 5.39996H7.16333L29.35 34.4066Z" fill="black"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="footer-items">
+            <div class="footer-items-txt">Pages</div>
+            <div class="footer-items-btn">
+                <button class="footer-items-btn-items" onclick="smoothScroll(document.getElementById('home'));">Home</button><br>
+                <button class="footer-items-btn-items" onclick="smoothScroll(document.getElementById('cars'));">Explore Cars</button><br>
+                <button class="footer-items-btn-items" onclick="smoothScroll(document.getElementById('about-us'));">About us</button><br>
+                <button class="footer-items-btn-items" onclick="smoothScroll(document.getElementById('about-us'));">Sign up</button>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <div class="footer-items-txt">Legal</div>
+            <div class="footer-items-btn">
+                <button class="footer-items-btn-items">Privacy Policy</button><br>
+                <button class="footer-items-btn-items">Refund Policy</button><br>
+                <button class="footer-items-btn-items">Cookie Policy</button>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <div class="footer-items-txt">Contact</div>
+            <div class="footer-items-btn">
+                <button class="footer-items-btn-items">India</button>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
